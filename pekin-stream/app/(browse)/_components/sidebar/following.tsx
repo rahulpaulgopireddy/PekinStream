@@ -11,7 +11,6 @@ interface FollowingProps {
 export const Following = ({ data }: FollowingProps) => {
   const { collaspsed } = useSidebar((state) => state);
   if (!data.length) return null;
-  console.log(data);
   return (
     <div>
       {!collaspsed && (

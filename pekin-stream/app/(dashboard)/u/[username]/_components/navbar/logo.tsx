@@ -17,8 +17,10 @@ export const Logo = () => {
       <div className="bg-white rounded-full p-1 mr-12 shrink-0 lg:mr-0 lg:shrink">
         <Image src="/spooky.svg" alt={""} width={35} height={35} />
       </div>
-      <p className="text-lg font-semibold">Pekin Stream</p>
-      <p className="text-xs text-muted-foreground">Lets Stream</p>
+      <div className={cn(font.className)}>
+        <p className="text-lg font-semibold">Pekin Stream</p>
+        <p className="text-xs text-muted-foreground">Creator Dashboard</p>
+      </div>
     </Link>
   );
 };

@@ -1,6 +1,5 @@
 import { db } from "./db";
 import { getSelf } from "./auth-service";
-import { resolve } from "path";
 
 export const getRecommended = async () => {
   let userId;
@@ -30,6 +29,15 @@ export const getRecommended = async () => {
               },
             },
           },
+          {
+            NOT: {
+              blocking: {
+                some: {
+                  blockedId: userId,
+                },
+              },
+            },
+          },
         ],
       },
     });
@@ -40,6 +48,5 @@ export const getRecommended = async () => {
       },
     });
   }
-
   return users;
 };
