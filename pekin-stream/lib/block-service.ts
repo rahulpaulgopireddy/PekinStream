@@ -25,12 +25,16 @@ export const isBlockedByUser = async (id: string) => {
         },
       },
     });
+
     return !!existingBlock;
-  } catch {}
+  } catch {
+    return false;
+  }
 };
 
 export const blockUser = async (id: string) => {
   const self = await getSelf();
+
   if (self.id === id) {
     throw new Error("Cannot block yourself");
   }
@@ -105,6 +109,7 @@ export const unblockUser = async (id: string) => {
       blocked: true,
     },
   });
+
   return unblock;
 };
 
@@ -119,5 +124,6 @@ export const getBlockedUsers = async () => {
       blocked: true,
     },
   });
+
   return blockedUsers;
 };
